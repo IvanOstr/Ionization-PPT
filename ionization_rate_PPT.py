@@ -77,7 +77,7 @@ beta = 2 * keldysh / np.sqrt(1 + keldysh**2)
 Z = 8 # oxygen
 n_star = Z / np.sqrt(2*U_i) * (a_b * m_e**0.5 / h_bar)**(-1) ## term on right is conversion from atomic units
 l_star = n_star - 1
-m = 0
+m = 1
 
 C1 = 0
 C2 = 0.683
