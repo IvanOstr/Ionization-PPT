@@ -41,6 +41,7 @@ I_res = 100
 I = np.linspace(I_start, I_end, I_res)
 
 ## from intensity to electric field
+## This is from "Gaussian Beam" in wikipedia
 etta = 377 # ohm = kg * m^2 * s^-1 * C^-2
 etta *= 10000 # from m^2 to cm^2
 E_p = np.sqrt(2 * etta * I) # N / C (SI)
@@ -50,7 +51,7 @@ U_p = e**2 * E_p **2 / 4 / m_e / laser_freq**2
 
 ## Ionization potential for oxygen
 U_i_eV = 12.07 # eV
-U_i = U_i_eV / 1.933e18 # J
+U_i = U_i_eV * 1.6e-19 # J
 
 ## Coulmb field
 ## Coulmb force exerted on electron in hydrogen atom is 8.2e-8 N
@@ -71,15 +72,12 @@ alpha = 2 * (np.arcsinh(keldysh) - keldysh / np.sqrt(1 + keldysh**2))
 ##  beta - no units
 beta = 2 * keldysh / np.sqrt(1 + keldysh**2)
 
-## chosen n, l and m
-n = 1
-l = 0
-m = 0
 
 ## effective quantum numbers (n star and l star)
 Z = 8 # oxygen
-n_star = Z / np.sqrt(2*U_i) * (1/h_bar * a_b * m_e**0.5)**(-1) ## term on right is conversion from atomic units
-l_star = n - 1
+n_star = Z / np.sqrt(2*U_i) * (a_b * m_e**0.5 / h_bar)**(-1) ## term on right is conversion from atomic units
+l_star = n_star - 1
+m = 0
 
 C1 = 0
 C2 = 0.683
