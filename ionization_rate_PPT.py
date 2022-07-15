@@ -74,7 +74,7 @@ beta = 2 * keldysh / np.sqrt(1 + keldysh**2)
 
 
 ## effective quantum numbers (n star and l star)
-Z = 6 # oxygen 8 - 2 
+Z = 0.53 # oxygen 8 - 2 
 n_star = Z / np.sqrt(2*U_i) * (a_b * m_e**0.5 / h_bar)**(-1) ## term on right is conversion from atomic units
 l_star = n_star - 1
 m = 1
